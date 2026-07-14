@@ -1,0 +1,104 @@
+@import "tailwindcss";
+
+@theme {
+  --color-ink: #0b0a08;
+  --color-muted: #696765;
+  --color-accent: #e7f256;
+  --color-accent-strong: #dbe946;
+  --color-soft: #f4f2f0;
+  --color-card: #f8f7f5;
+  --color-card-foreground: #0b0a08;
+  --color-background: #ffffff;
+  --color-foreground: #0b0a08;
+  --color-primary: #e7f256;
+  --color-primary-foreground: #0b0a08;
+  --color-secondary: #f4f2f0;
+  --color-secondary-foreground: #0b0a08;
+  --color-muted-foreground: #696765;
+  --color-accent-foreground: #0b0a08;
+  --color-input: #e6e3e0;
+  --color-border: #e6e3e0;
+  --color-ring: #b8c533;
+  --color-destructive: #b42318;
+  --color-destructive-foreground: #ffffff;
+  --font-sans: "Inter Variable", "Inter", "Helvetica Neue", Arial, sans-serif;
+}
+
+@layer base {
+  * {
+    box-sizing: border-box;
+    border-color: var(--color-border);
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    margin: 0;
+    min-width: 320px;
+    min-height: 100vh;
+    background: white;
+    color: var(--color-ink);
+    font-family: var(--font-sans);
+    -webkit-font-smoothing: antialiased;
+  }
+
+  button,
+  input {
+    font: inherit;
+  }
+
+  ::selection {
+    background: var(--color-accent);
+    color: var(--color-ink);
+  }
+}
+
+@layer components {
+  .page-container {
+    width: min(100% - 2rem, 1180px);
+    margin-inline: auto;
+  }
+
+  .display-title {
+    font-size: clamp(2.8rem, 7vw, 5.45rem);
+    font-weight: 500;
+    line-height: 0.98;
+    letter-spacing: -0.065em;
+  }
+
+  .display-title span {
+    color: var(--color-muted);
+  }
+
+  .section-space {
+    padding-block: 7rem;
+  }
+
+  .section-heading {
+    font-size: clamp(1.75rem, 3.25vw, 3.15rem);
+    font-weight: 500;
+    line-height: 1.08;
+    letter-spacing: -0.055em;
+  }
+
+  .feature-title {
+    font-size: clamp(1.35rem, 2vw, 1.85rem);
+  }
+
+  .feature-title span {
+    color: var(--color-muted);
+    font-weight: 450;
+  }
+
+  @media (min-width: 768px) {
+    .page-container {
+      width: min(100% - 4rem, 1180px);
+    }
+
+    .section-space {
+      padding-block: 10rem;
+    }
+  }
+}
