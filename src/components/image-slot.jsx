@@ -20,7 +20,7 @@ export function ImageSlot({ label, className, browser = false, children }) {
         </div>
       )}
       <div className={cn("flex flex-col items-center gap-3 px-6 text-center", browser && "pt-11")}>
-        <Badge variant="outline">Imagen</Badge>
+        {/* <Badge variant="outline">Imagen</Badge> */}
         <p className="max-w-xs text-sm text-muted">{label}</p>
         {children}
       </div>

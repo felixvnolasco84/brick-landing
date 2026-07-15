@@ -6,7 +6,9 @@
   "scripts": {
     "dev": "vite",
     "build": "vite build",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "email:dev": "email dev --dir emails/emails --port 3001",
+    "email:build": "email build --dir emails/emails"
   },
   "dependencies": {
     "@fontsource-variable/inter": "^5.2.8",
@@ -16,10 +18,15 @@
     "@vitejs/plugin-react": "^4.6.0",
     "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",
+    "gsap": "^3.15.0",
     "react": "^19.1.0",
     "react-dom": "^19.1.0",
+    "react-email": "^6.8.1",
     "tailwind-merge": "^3.3.1",
     "tailwindcss": "^4.1.11",
     "vite": "^7.0.4"
+  },
+  "devDependencies": {
+    "@react-email/ui": "^6.8.1"
   }
 }
