@@ -60,7 +60,7 @@ function Hero() {
           </h1>
           <p data-hero-support className="mt-5 max-w-2xl text-base font-medium text-[#696765]">Presupuesto, programa y control de obra. Todo en un solo lugar.</p>
           <div data-hero-support className="mt-9"><DemoForm source="Sección principal" /></div>
-        </div>
+        </div> 
         <Card data-hero-card className="mt-14 border-0 bg-[#F4F2F0] p-3 shadow-none md:mt-14 md:p-14">
           <ImageSlot browser className="aspect-[16/10] min-h-72 md:aspect-[16/8] bg-[#F4F2F0]">
             <img src={HeroDashboard} alt="dashboard principal de Brick" className="w-full h-full object-cover pt-12" />
