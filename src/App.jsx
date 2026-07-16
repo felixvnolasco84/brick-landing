@@ -7,6 +7,7 @@ import { DemoForm } from "@/components/demo-form"
 import { ImageSlot } from "@/components/image-slot"
 import { useLandingAnimations } from "@/hooks/use-landing-animations"
 
+import HeroDashboard from "../public/images/Hero-dashboard.png"
 import Group20728 from "../public/images/Group 20728.png"
 import Group20730 from "../public/images/Group 20730.png"
 import Group20731 from "../public/images/Group 20731.png"
@@ -58,10 +59,12 @@ function Hero() {
             <span className="block overflow-hidden"><span data-title-line className="block text-muted">Menos de lo que crees.</span></span>
           </h1>
           <p data-hero-support className="mt-5 max-w-2xl text-base font-medium text-[#696765]">Presupuesto, programa y control de obra. Todo en un solo lugar.</p>
-          <div data-hero-support className="mt-9"><DemoForm /></div>
+          <div data-hero-support className="mt-9"><DemoForm source="Sección principal" /></div>
         </div>
-        <Card data-hero-card className="mt-14 border-0 bg-soft p-3 shadow-none md:mt-14 md:p-14">
-          <ImageSlot label="dashboard principal de Brick" browser className="aspect-[16/10] min-h-72 md:aspect-[16/8]" />
+        <Card data-hero-card className="mt-14 border-0 bg-[#F4F2F0] p-3 shadow-none md:mt-14 md:p-14">
+          <ImageSlot browser className="aspect-[16/10] min-h-72 md:aspect-[16/8] bg-[#F4F2F0]">
+            <img src={HeroDashboard} alt="dashboard principal de Brick" className="w-full h-full object-cover pt-12" />
+          </ImageSlot>
         </Card>
       </div>
     </section>
@@ -75,7 +78,7 @@ function FeatureGrid() {
         <div data-title-group className="max-w-6xl">
           <h2 data-title-reveal className="text-3xl font-medium leading-[1.08] tracking-[-0.055em] md:text-4xl lg:text-5xl">Saber el estado real de tu obra —presupuesto, incidencias, avance real— depende de que alguien te lo comunique.</h2>
           <p data-title-reveal className="text-3xl font-medium leading-[1.08] tracking-[-0.055em] text-muted md:text-4xl lg:text-5xl">Y depender de la memoria de alguien no es un sistema.</p>
-          <DemoForm className="mt-8" />
+          <DemoForm className="mt-8" source="Sección de producto" />
         </div>
         <div data-card-group="features" className="mt-14 grid grid-cols-1 gap-5 md:grid-cols-6">
           {features.map((feature, index) => (
@@ -142,7 +145,7 @@ function ClosingCards() {
         <Card data-animate-card className="flex min-h-80 flex-col items-center justify-center bg-soft p-7 text-center lg:col-span-2 border border-[#dedbd7] shadow-sm">
           <h2 className="text-2xl font-medium tracking-tight md:text-3xl">Deja de adivinar cómo va tu obra.</h2>
           <p className="mt-2 text-muted">Comienza con un mes de prueba</p>
-          <DemoForm className="mt-8" />
+          <DemoForm className="mt-8" source="Tarjeta de cierre" />
         </Card>
         <Card data-animate-card className="grid min-h-80 overflow-hidden bg-soft sm:grid-cols-2 lg:col-span-3 border border-[#dedbd7] shadow-sm">
           <ImageSlot className="min-h-64 rounded-none border-y-0 border-l-0">
@@ -164,7 +167,7 @@ function Footer() {
       <div className="mx-auto flex min-h-[32rem] w-[calc(100%-2rem)] max-w-[1180px] flex-col py-16 md:min-h-[36rem] md:w-[calc(100%-4rem)] md:py-20">
         <div data-title-group>
           <h2 data-title-reveal className="max-w-4xl text-4xl font-medium leading-[1.03] tracking-[-0.055em] md:text-6xl">Deja de adivinar cómo va tu obra.</h2>
-          <DemoForm className="mt-8" />
+          <DemoForm className="mt-8" source="Pie de página" />
           <a href="mailto:hola@brickcontrol.mx" className="mt-5 inline-block text-sm hover:underline">hola@brickcontrol.mx</a>
         </div>
         <div className="mt-auto flex items-end gap-4 pt-20">

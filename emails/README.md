@@ -9,22 +9,35 @@ dependen de rutas, esquemas ni variables de entorno de Next.js.
 npm run email:dev
 ```
 
-La galería se abre en `http://localhost:3001`. Para comprobar el build de la
-galería sin iniciar el servidor:
+La galería se abre en `http://localhost:3001`. Para comprobar el build sin
+iniciar el servidor:
 
 ```bash
 npm run email:build
 ```
 
-## Uso
+Las plantillas se pueden importar desde `emails/index.js`. Incluyen datos de
+ejemplo mediante `PreviewProps`, pero al enviarlas se deben pasar los datos
+reales como props.
 
-Las plantillas se pueden importar desde `emails/index.js`. Los componentes
-incluyen datos de ejemplo mediante `PreviewProps`, pero al enviarlos se deben
-pasar los datos reales como props.
+## Resend y Vercel
 
-`VITE_SITE_URL` permite reemplazar la URL predeterminada
-`https://brickcontrol.mx`. Si se pasa `logoUrl`, debe ser una URL pública y
-absoluta para que el logotipo cargue en el cliente de correo.
+El endpoint `api/contact.js` funciona como Vercel Function. Valida el formulario
+y utiliza Resend para enviar en un solo lote:
 
-El envío debe hacerse desde un backend o una función serverless; una clave de
-un proveedor de correo nunca debe incluirse en el bundle del navegador.
+1. Una notificación interna a `CONTACT_TO_EMAIL`.
+2. Una confirmación al correo ingresado por el prospecto.
+
+Copia `.env.example` como `.env.local` para desarrollo y configura las mismas
+variables en **Vercel → Project Settings → Environment Variables** para
+producción. `RESEND_FROM_EMAIL` debe usar un dominio verificado en Resend.
+
+Para probar la aplicación y la función juntas localmente, usa Vercel CLI:
+
+```bash
+npx vercel dev
+```
+
+El servidor normal de Vite (`npm run dev`) solo levanta el frontend y no ejecuta
+la carpeta `api`. Nunca incluyas la clave de Resend en una variable `VITE_*`,
+porque Vite expone esas variables en el navegador.

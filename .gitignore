@@ -4,3 +4,5 @@ dist/
 .react-email/
 .prototype-base/
 *.log
+.env*
+!.env.example

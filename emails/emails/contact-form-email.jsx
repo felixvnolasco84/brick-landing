@@ -1,61 +1,65 @@
-import {
-  Body,
-  Container,
-  Head,
-  Heading,
-  Html,
-  Preview,
-  Section,
-  Text,
-} from "react-email"
+import { Heading, Link, Section, Text } from "react-email"
+
+import { EmailLayout, emailStyles } from "./_components/email-layout.jsx"
 
 export function ContactFormEmail({
   name = "",
-  email = "",
+  email = "cliente@ejemplo.com",
   phoneNumber = "",
   service = "",
   project = "",
   budget = "",
   interest = [],
+  source = "Landing page",
+  submittedAt = "",
 } = {}) {
   const interests = Array.isArray(interest) ? interest : [interest].filter(Boolean)
 
   return (
-    <Html lang="es">
-      <Head />
-      <Preview>Nueva solicitud de contacto de {name}</Preview>
-      <Body style={styles.body}>
-        <Container style={styles.container}>
-          <Text style={styles.wordmark}>brick</Text>
-          <Heading style={styles.heading}>Nuevo contacto</Heading>
+    <EmailLayout
+      preview={`Nueva solicitud de contacto: ${email}`}
+      eyebrow="Nuevo prospecto"
+      footer="Notificación interna"
+    >
+      <Heading style={emailStyles.heading}>
+        Hay una nueva obra <span style={emailStyles.mutedHeading}>por conocer.</span>
+      </Heading>
 
-          <Section style={styles.section}>
-            <Text style={styles.text}>
-              <strong>Nombre:</strong> {name}
-            </Text>
-            <Text style={styles.text}>
-              <strong>Correo:</strong> {email}
-            </Text>
-            <Text style={styles.text}>
-              <strong>Teléfono:</strong> {phoneNumber}
-            </Text>
-            <Text style={styles.text}>
-              <strong>Servicio:</strong> {service}
-            </Text>
-            <Text style={styles.text}>
-              <strong>Proyecto:</strong> {project}
-            </Text>
-            <Text style={styles.text}>
-              <strong>Presupuesto:</strong> {budget}
-            </Text>
-            <Text style={styles.text}>
-              <strong>Intereses:</strong>{" "}
-              {interests.length > 0 ? interests.join(", ") : "Sin especificar"}
-            </Text>
-          </Section>
-        </Container>
-      </Body>
-    </Html>
+      <Text style={emailStyles.text}>
+        Se registró una solicitud desde la landing de Brick. Responde directamente
+        a este correo para contactar al prospecto.
+      </Text>
+
+      <Section style={emailStyles.detailCard}>
+        {name ? <Detail label="Nombre" value={name} /> : null}
+        <Detail
+          label="Correo"
+          value={
+            <Link href={`mailto:${email}`} style={emailStyles.link}>
+              {email}
+            </Link>
+          }
+        />
+        {phoneNumber ? <Detail label="Teléfono" value={phoneNumber} /> : null}
+        {service ? <Detail label="Servicio" value={service} /> : null}
+        {project ? <Detail label="Proyecto" value={project} /> : null}
+        {budget ? <Detail label="Presupuesto" value={budget} /> : null}
+        {interests.length > 0 ? (
+          <Detail label="Intereses" value={interests.join(", ")} />
+        ) : null}
+        <Detail label="Origen" value={source} last={!submittedAt} />
+        {submittedAt ? <Detail label="Fecha" value={submittedAt} last /> : null}
+      </Section>
+    </EmailLayout>
+  )
+}
+
+function Detail({ label, value, last = false }) {
+  return (
+    <Section style={last ? undefined : emailStyles.detailRow}>
+      <Text style={emailStyles.detailLabel}>{label}</Text>
+      <Text style={emailStyles.detailValue}>{value}</Text>
+    </Section>
   )
 }
 
@@ -69,23 +73,6 @@ ContactFormEmail.PreviewProps = {
   project: "Desarrollo residencial",
   budget: "$10–20 M MXN",
   interest: ["Presupuesto", "Programa", "Requisiciones"],
-}
-
-const styles = {
-  body: {
-    margin: 0,
-    backgroundColor: "#F4F2F0",
-    color: "#0B0A08",
-    fontFamily: "Inter, Arial, sans-serif",
-  },
-  container: { maxWidth: "520px", margin: "0 auto", padding: "40px 24px" },
-  wordmark: { margin: "0 0 28px", fontSize: "28px", fontWeight: "700" },
-  heading: { margin: "0 0 24px", fontSize: "28px", lineHeight: "1.15" },
-  section: {
-    padding: "24px",
-    border: "1px solid #E5E2DF",
-    borderRadius: "16px",
-    backgroundColor: "#ffffff",
-  },
-  text: { margin: "0 0 12px", fontSize: "14px", lineHeight: "22px" },
+  source: "Sección principal",
+  submittedAt: "15 de julio de 2026, 10:30",
 }
