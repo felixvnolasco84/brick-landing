@@ -2,8 +2,8 @@ import { randomUUID } from "node:crypto"
 import { jsx } from "react/jsx-runtime"
 import { Resend } from "resend"
 
-import ContactFormEmail from "../emails/emails/contact-form-email.jsx"
-import SimpleContactOnlyEmail from "../emails/emails/simple-contact-only-email.jsx"
+import ContactFormEmail from "../emails/emails/contact-form-email.js"
+import SimpleContactOnlyEmail from "../emails/emails/simple-contact-only-email.js"
 
 const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
 const requestIdPattern = /^[a-zA-Z0-9_-]{8,128}$/

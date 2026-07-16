@@ -1,3 +1,4 @@
+import { jsx, jsxs } from "react/jsx-runtime";
 import {
   Body,
   Column,
@@ -8,72 +9,55 @@ import {
   Preview,
   Row,
   Section,
-  Text,
-} from "react-email"
-
-export function EmailLayout({
+  Text
+} from "react-email";
+function EmailLayout({
   preview,
   eyebrow,
   children,
-  footer = "Presupuesto, programa y control de obra.",
+  footer = "Presupuesto, programa y control de obra."
 }) {
-  return (
-    <Html lang="es">
-      <Head />
-      <Preview>{preview}</Preview>
-      <Body style={emailStyles.body}>
-        <Container style={emailStyles.container}>
-          <Section style={emailStyles.header}>
-            <Row>
-              <Column>
-                <Text style={emailStyles.wordmark}>brick</Text>
-              </Column>
-              <Column align="right">
-                <Text style={emailStyles.brandDescriptor}>CONTROL DE OBRA</Text>
-              </Column>
-            </Row>
-          </Section>
-
-          <Section style={emailStyles.card}>
-            <Section style={emailStyles.accentLine} />
-            <Section style={emailStyles.cardContent}>
-              <Text style={emailStyles.eyebrow}>
-                <span style={emailStyles.eyebrowRule}>——</span> {eyebrow}
-              </Text>
-              {children}
-            </Section>
-          </Section>
-
-          <Hr style={emailStyles.footerRule} />
-          <Row>
-            <Column>
-              <Text style={emailStyles.footerText}>Brick Control © 2026</Text>
-            </Column>
-            <Column align="right">
-              <Text style={emailStyles.footerText}>{footer}</Text>
-            </Column>
-          </Row>
-        </Container>
-      </Body>
-    </Html>
-  )
+  return /* @__PURE__ */ jsxs(Html, { lang: "es", children: [
+    /* @__PURE__ */ jsx(Head, {}),
+    /* @__PURE__ */ jsx(Preview, { children: preview }),
+    /* @__PURE__ */ jsx(Body, { style: emailStyles.body, children: /* @__PURE__ */ jsxs(Container, { style: emailStyles.container, children: [
+      /* @__PURE__ */ jsx(Section, { style: emailStyles.header, children: /* @__PURE__ */ jsxs(Row, { children: [
+        /* @__PURE__ */ jsx(Column, { children: /* @__PURE__ */ jsx(Text, { style: emailStyles.wordmark, children: "brick" }) }),
+        /* @__PURE__ */ jsx(Column, { align: "right", children: /* @__PURE__ */ jsx(Text, { style: emailStyles.brandDescriptor, children: "CONTROL DE OBRA" }) })
+      ] }) }),
+      /* @__PURE__ */ jsxs(Section, { style: emailStyles.card, children: [
+        /* @__PURE__ */ jsx(Section, { style: emailStyles.accentLine }),
+        /* @__PURE__ */ jsxs(Section, { style: emailStyles.cardContent, children: [
+          /* @__PURE__ */ jsxs(Text, { style: emailStyles.eyebrow, children: [
+            /* @__PURE__ */ jsx("span", { style: emailStyles.eyebrowRule, children: "\u2014\u2014" }),
+            " ",
+            eyebrow
+          ] }),
+          children
+        ] })
+      ] }),
+      /* @__PURE__ */ jsx(Hr, { style: emailStyles.footerRule }),
+      /* @__PURE__ */ jsxs(Row, { children: [
+        /* @__PURE__ */ jsx(Column, { children: /* @__PURE__ */ jsx(Text, { style: emailStyles.footerText, children: "Brick Control \xA9 2026" }) }),
+        /* @__PURE__ */ jsx(Column, { align: "right", children: /* @__PURE__ */ jsx(Text, { style: emailStyles.footerText, children: footer }) })
+      ] })
+    ] }) })
+  ] });
 }
-
-export const emailStyles = {
+const emailStyles = {
   body: {
     margin: 0,
     backgroundColor: "#F4F2F0",
-    backgroundImage:
-      "linear-gradient(rgba(11,10,8,0.035) 1px, transparent 1px), linear-gradient(90deg, rgba(11,10,8,0.035) 1px, transparent 1px)",
+    backgroundImage: "linear-gradient(rgba(11,10,8,0.035) 1px, transparent 1px), linear-gradient(90deg, rgba(11,10,8,0.035) 1px, transparent 1px)",
     backgroundSize: "32px 32px",
     color: "#0B0A08",
-    fontFamily: "Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Arial, sans-serif",
+    fontFamily: "Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Arial, sans-serif"
   },
   container: {
     width: "100%",
     maxWidth: "600px",
     margin: "0 auto",
-    padding: "40px 20px 32px",
+    padding: "40px 20px 32px"
   },
   header: { padding: "0 4px 22px" },
   wordmark: {
@@ -82,7 +66,7 @@ export const emailStyles = {
     fontSize: "30px",
     fontWeight: "800",
     letterSpacing: "-2px",
-    lineHeight: "32px",
+    lineHeight: "32px"
   },
   brandDescriptor: {
     margin: 0,
@@ -90,14 +74,14 @@ export const emailStyles = {
     fontSize: "10px",
     fontWeight: "600",
     letterSpacing: "2px",
-    lineHeight: "32px",
+    lineHeight: "32px"
   },
   card: {
     overflow: "hidden",
     border: "1px solid #DAD7D3",
     borderRadius: "18px",
     backgroundColor: "#FFFFFF",
-    boxShadow: "8px 8px 0 rgba(11,10,8,0.05)",
+    boxShadow: "8px 8px 0 rgba(11,10,8,0.05)"
   },
   accentLine: { height: "5px", backgroundColor: "#E7F256" },
   cardContent: { padding: "38px 40px 40px" },
@@ -107,7 +91,7 @@ export const emailStyles = {
     fontSize: "10px",
     fontWeight: "700",
     letterSpacing: "2px",
-    textTransform: "uppercase",
+    textTransform: "uppercase"
   },
   eyebrowRule: { color: "#0B0A08", letterSpacing: "-2px" },
   heading: {
@@ -116,7 +100,7 @@ export const emailStyles = {
     fontSize: "38px",
     fontWeight: "500",
     letterSpacing: "-1.6px",
-    lineHeight: "42px",
+    lineHeight: "42px"
   },
   mutedHeading: { color: "#8A8783" },
   text: {
@@ -124,14 +108,14 @@ export const emailStyles = {
     color: "#565350",
     fontSize: "15px",
     fontWeight: "400",
-    lineHeight: "25px",
+    lineHeight: "25px"
   },
   detailCard: {
     margin: "28px 0",
     padding: "22px 24px",
     border: "1px solid #E2DFDC",
     borderRadius: "12px",
-    backgroundColor: "#F7F7F5",
+    backgroundColor: "#F7F7F5"
   },
   detailLabel: {
     margin: "0 0 6px",
@@ -139,13 +123,13 @@ export const emailStyles = {
     fontSize: "10px",
     fontWeight: "700",
     letterSpacing: "1.4px",
-    textTransform: "uppercase",
+    textTransform: "uppercase"
   },
   detailValue: {
     margin: 0,
     color: "#0B0A08",
     fontSize: "15px",
-    lineHeight: "22px",
+    lineHeight: "22px"
   },
   detailRow: { marginBottom: "18px" },
   buttonSection: { margin: "30px 0 6px" },
@@ -157,7 +141,7 @@ export const emailStyles = {
     color: "#FFFFFF",
     fontSize: "14px",
     fontWeight: "600",
-    textDecoration: "none",
+    textDecoration: "none"
   },
   statusRow: { marginTop: "22px" },
   statusBarMuted: {
@@ -165,26 +149,26 @@ export const emailStyles = {
     width: "30%",
     height: "4px",
     marginRight: "5%",
-    backgroundColor: "#DEDCD8",
+    backgroundColor: "#DEDCD8"
   },
   statusBarActive: {
     display: "inline-block",
     width: "30%",
     height: "4px",
     marginRight: "5%",
-    backgroundColor: "#0B0A08",
+    backgroundColor: "#0B0A08"
   },
   statusBarLast: {
     display: "inline-block",
     width: "30%",
     height: "4px",
-    backgroundColor: "#DEDCD8",
+    backgroundColor: "#DEDCD8"
   },
   note: {
     margin: "24px 0 0",
     color: "#8A8783",
     fontSize: "12px",
-    lineHeight: "19px",
+    lineHeight: "19px"
   },
   link: { color: "#0B0A08", textDecoration: "underline" },
   footerRule: { margin: "30px 4px 16px", borderColor: "#DAD7D3" },
@@ -192,6 +176,10 @@ export const emailStyles = {
     margin: 0,
     color: "#8A8783",
     fontSize: "10px",
-    lineHeight: "16px",
-  },
-}
+    lineHeight: "16px"
+  }
+};
+export {
+  EmailLayout,
+  emailStyles
+};
