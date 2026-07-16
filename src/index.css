@@ -1,5 +1,61 @@
 @import "tailwindcss";
 
+@font-face {
+  font-family: "Dazzed";
+  src: url("../fonts/Dazzed-TRIAL-Thin.otf") format("opentype");
+  font-weight: 100;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Dazzed";
+  src: url("../fonts/Dazzed-TRIAL-Light.otf") format("opentype");
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Dazzed";
+  src: url("../fonts/Dazzed-TRIAL-Regular.otf") format("opentype");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Dazzed";
+  src: url("../fonts/Dazzed-TRIAL-Medium.otf") format("opentype");
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Dazzed";
+  src: url("../fonts/Dazzed-TRIAL-SemiBold.otf") format("opentype");
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Dazzed";
+  src: url("../fonts/Dazzed-TRIAL-Bold.otf") format("opentype");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Dazzed";
+  src: url("../fonts/Dazzed-TRIAL-Heavy.otf") format("opentype");
+  font-weight: 900;
+  font-style: normal;
+  font-display: swap;
+}
+
 @theme {
   --color-ink: #0b0a08;
   --color-muted: #696765;
@@ -21,84 +77,5 @@
   --color-ring: #b8c533;
   --color-destructive: #b42318;
   --color-destructive-foreground: #ffffff;
-  --font-sans: "Inter Variable", "Inter", "Helvetica Neue", Arial, sans-serif;
-}
-
-@layer base {
-  * {
-    box-sizing: border-box;
-    border-color: var(--color-border);
-  }
-
-  html {
-    scroll-behavior: smooth;
-  }
-
-  body {
-    margin: 0;
-    min-width: 320px;
-    min-height: 100vh;
-    background: white;
-    color: var(--color-ink);
-    font-family: var(--font-sans);
-    -webkit-font-smoothing: antialiased;
-  }
-
-  button,
-  input {
-    font: inherit;
-  }
-
-  ::selection {
-    background: var(--color-accent);
-    color: var(--color-ink);
-  }
-}
-
-@layer components {
-  .page-container {
-    width: min(100% - 2rem, 1180px);
-    margin-inline: auto;
-  }
-
-  .display-title {
-    font-size: clamp(2.8rem, 7vw, 5.45rem);
-    font-weight: 500;
-    line-height: 0.98;
-    letter-spacing: -0.065em;
-  }
-
-  .display-title span {
-    color: var(--color-muted);
-  }
-
-  .section-space {
-    padding-block: 7rem;
-  }
-
-  .section-heading {
-    font-size: clamp(1.75rem, 3.25vw, 3.15rem);
-    font-weight: 500;
-    line-height: 1.08;
-    letter-spacing: -0.055em;
-  }
-
-  .feature-title {
-    font-size: clamp(1.35rem, 2vw, 1.85rem);
-  }
-
-  .feature-title span {
-    color: var(--color-muted);
-    font-weight: 450;
-  }
-
-  @media (min-width: 768px) {
-    .page-container {
-      width: min(100% - 4rem, 1180px);
-    }
-
-    .section-space {
-      padding-block: 10rem;
-    }
-  }
+  --font-sans: "Dazzed", "Helvetica Neue", Arial, sans-serif;
 }

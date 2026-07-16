@@ -1,5 +1,8 @@
 node_modules/
 dist/
 .npm-cache/
+.react-email/
 .prototype-base/
 *.log
+.env*
+!.env.example
