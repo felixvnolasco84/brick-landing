@@ -42,7 +42,7 @@ function Header() {
         <Logo />
         <div className="flex items-center gap-2.5">
           <Button variant="outline" className="hidden sm:inline-flex" asChild><a href="mailto:hola@brickcontrol.mx">Iniciar sesión</a></Button>
-          <Button asChild><a href="#contacto">Agendar demo</a></Button>
+          <DemoForm buttonText="Agendar demo" source="Encabezado" />
         </div>
       </div>
     </header>
