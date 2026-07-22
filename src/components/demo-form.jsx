@@ -91,28 +91,17 @@ export function DemoForm({
         </DialogTrigger>
       </div>
 
-      <DialogContent className="max-h-[calc(100dvh-2rem)] max-w-[35rem] overflow-y-auto p-0">
-        <div aria-hidden="true" className="h-1.5 bg-accent" />
-        <div className="px-5 pb-7 pt-5 sm:px-10 sm:pb-10 sm:pt-8">
-          <div className="mb-8 flex items-center justify-between pr-8">
-            <span className="text-[1.75rem] font-black leading-none tracking-[-0.08em]">brick</span>
-            <span className="text-[9px] font-semibold tracking-[0.2em] text-muted">CONTROL DE OBRA</span>
-          </div>
-
-          <p className="mb-5 text-center text-[10px] font-bold uppercase tracking-[0.2em] text-muted">
-            <span aria-hidden="true" className="tracking-[-0.2em] text-ink">——</span> Demo de producto
-          </p>
-
+      <DialogContent className="max-h-[calc(100dvh-2rem)] max-w-[30rem] gap-0 overflow-y-auto rounded-lg border-border p-7 shadow-none sm:p-10">
           <DialogHeader>
-            <DialogTitle>
-              Descubre <span className="text-[#8A8783]">brick en acción.</span>
+            <DialogTitle className="text-[2rem] tracking-[-0.05em] text-muted sm:text-[2rem]">
+              Descubre <span className="brand-word text-ink">brick.</span>
             </DialogTitle>
-            <DialogDescription className="mx-auto max-w-[27rem]">
-              Registra tu correo de trabajo para explorar cómo Brick te ayuda a controlar presupuesto, programa y avance de obra.
+            <DialogDescription className="mx-auto max-w-[22rem] font-medium leading-[1.15] tracking-[-0.035em]">
+              Explora la plataforma que conecta presupuesto,<br className="hidden sm:block" /> programa y control de obra.
             </DialogDescription>
           </DialogHeader>
 
-          <form className="relative mt-7 space-y-3" onSubmit={handleSubmit}>
+          <form className="relative mt-10 space-y-3" onSubmit={handleSubmit}>
             <label className="sr-only" htmlFor={emailId}>Correo electrónico de trabajo</label>
             <Input
               id={emailId}
@@ -130,8 +119,8 @@ export function DemoForm({
                 requestIdRef.current = ""
                 setStatus("idle")
               }}
-              placeholder="Correo de trabajo*"
-              className="h-14 rounded-none border-[#DAD7D3] bg-[#F7F7F5] px-4 text-base placeholder:text-[#8A8783] focus-visible:ring-1 sm:text-base"
+              placeholder="ejemplo@gmail.com"
+              className="h-12 rounded-lg border-border bg-white px-5 text-base font-medium tracking-[-0.035em] placeholder:text-muted focus-visible:ring-1 sm:text-base"
             />
 
             <div className="pointer-events-none absolute -left-[10000px] top-auto size-px overflow-hidden" aria-hidden="true">
@@ -148,7 +137,7 @@ export function DemoForm({
             <Button
               type="submit"
               disabled={status === "sending"}
-              className="h-14 w-full rounded-none text-base"
+              className="h-12 w-full rounded-sm text-base font-medium tracking-[-0.04em]"
             >
               {status === "sending" ? "Registrando…" : status === "sent" ? "Abriendo producto…" : "Explorar producto"}
             </Button>
@@ -166,10 +155,6 @@ export function DemoForm({
             </p>
           </form>
 
-          <p className="mt-5 text-center text-[11px] leading-4 text-[#8A8783]">
-            Al continuar aceptas que Brick use tu correo para dar seguimiento a tu solicitud.
-          </p>
-        </div>
       </DialogContent>
     </Dialog>
   )

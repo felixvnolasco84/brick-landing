@@ -57,25 +57,30 @@
 }
 
 @theme {
-  --color-ink: #0b0a08;
+  --color-ink: #04091a;
   --color-muted: #696765;
   --color-accent: #e7f256;
   --color-accent-strong: #dbe946;
   --color-soft: #f4f2f0;
   --color-card: #f8f7f5;
-  --color-card-foreground: #0b0a08;
+  --color-card-foreground: #04091a;
   --color-background: #ffffff;
-  --color-foreground: #0b0a08;
+  --color-foreground: #04091a;
   --color-primary: #e7f256;
-  --color-primary-foreground: #0b0a08;
+  --color-primary-foreground: #04091a;
   --color-secondary: #f4f2f0;
-  --color-secondary-foreground: #0b0a08;
+  --color-secondary-foreground: #04091a;
   --color-muted-foreground: #696765;
-  --color-accent-foreground: #0b0a08;
-  --color-input: #e6e3e0;
-  --color-border: #e6e3e0;
+  --color-accent-foreground: #04091a;
+  --color-input: #e4e4e4;
+  --color-border: #e4e4e4;
   --color-ring: #b8c533;
   --color-destructive: #b42318;
   --color-destructive-foreground: #ffffff;
   --font-sans: "Dazzed", "Helvetica Neue", Arial, sans-serif;
+}
+
+@utility brand-word {
+  font-weight: 700;
+  letter-spacing: -0.068em;
 }
