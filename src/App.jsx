@@ -4,7 +4,9 @@ import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardFooter, CardHeader, CardTitle } from "@/components/ui/card"
 import { Separator } from "@/components/ui/separator"
 import { DemoForm } from "@/components/demo-form"
+import { CheckoutNotice } from "@/components/checkout-notice"
 import { ImageSlot } from "@/components/image-slot"
+import { SubscriptionButton } from "@/components/subscription-button"
 import { useLandingAnimations } from "@/hooks/use-landing-animations"
 
 import HeroDashboard from "../public/images/Hero-dashboard.png"
@@ -32,7 +34,7 @@ const plans = [
 ]
 
 function Logo() {
-  return <a href="#inicio" className="text-[2rem] font-black leading-none tracking-[-0.08em]" aria-label="Brick, inicio">brick</a>
+  return <a href="#inicio" className="brand-word text-[2rem] leading-none" aria-label="Brick, inicio">brick</a>
 }
 
 function Header() {
@@ -53,12 +55,13 @@ function Hero() {
   return (
     <section id="inicio" className="overflow-hidden pt-40 md:pt-56">
       <div className="mx-auto w-[calc(100%-2rem)] max-w-[1180px] md:w-[calc(100%-4rem)]">
+        <CheckoutNotice />
         <div className="max-w-4xl">
-          <h1 data-hero-title className="text-5xl font-medium leading-[0.98] tracking-[-0.065em] sm:text-6xl lg:text-5xl">
-            <span className="block overflow-hidden"><span data-title-line className="block">Excel aguanta mucho.</span></span>
-            <span className="block overflow-hidden"><span data-title-line className="block text-muted">Menos de lo que crees.</span></span>
+          <h1 data-hero-title className="text-5xl font-medium leading-[0.98] tracking-[-0.068em] sm:text-6xl lg:text-5xl">
+            <span className="-mb-[0.09em] block overflow-hidden px-[0.04em] pb-[0.09em] -mx-[0.04em]"><span data-title-line className="block">Excel aguanta mucho.</span></span>
+            <span className="-mb-[0.09em] block overflow-hidden px-[0.04em] pb-[0.09em] -mx-[0.04em]"><span data-title-line className="block text-muted">Menos de lo que crees.</span></span>
           </h1>
-          <p data-hero-support className="mt-5 max-w-2xl text-base font-medium text-[#696765]">Presupuesto, programa y control de obra. Todo en un solo lugar.</p>
+          <p data-hero-support className="mt-5 max-w-2xl text-base font-medium tracking-[-0.05em] text-muted">Presupuesto, programa y control de obra. Todo en un solo lugar.</p>
           <div data-hero-support className="mt-9"><DemoForm source="Sección principal" /></div>
         </div> 
         <Card data-hero-card className="mt-14 border-0 bg-[#F4F2F0] p-3 shadow-none md:mt-14 md:p-14">
@@ -84,7 +87,7 @@ function FeatureGrid() {
           {features.map((feature, index) => (
             <Card data-animate-card key={index} className={`overflow-hidden border border-[#E4E4E4] shadow-sm  bg-soft ${feature.large ? "md:col-span-3" : "md:col-span-2"}`}>
               <CardHeader className="pb-6 md:p-8 md:pb-7">
-                <CardTitle className="text-xl sm:text-2xl  [&_span]:font-[450] [&_span]:text-muted">{feature.title}</CardTitle>
+                <CardTitle className="text-xl sm:text-2xl [&_span]:font-medium [&_span]:text-muted">{feature.title}</CardTitle>
               </CardHeader>
               <CardContent className="p-3 pt-0 md:px-7 md:pb-0">
                 <img data-card-media src={feature.image} alt={feature.image} />
@@ -101,7 +104,7 @@ function FeatureGrid() {
 function ActionVisual() {
   return (
     <section className="mx-auto w-[calc(100%-2rem)] max-w-[1180px] md:w-[calc(100%-4rem)]">
-      <img src={MaskGroup72} alt="Brick en acción" className="w-full h-full object-cover aspect-[4/3] min-h-80 bg-[#dedbd7] md:aspect-[16/8] md:min-h-0 rounded-2xl" />
+      <img src={MaskGroup72} alt="Brick en acción" className="w-full h-full object-cover aspect-[4/3] min-h-80 bg-border md:aspect-[16/8] md:min-h-0 rounded-2xl" />
     </section>
   )
 }
@@ -111,12 +114,12 @@ function Pricing() {
     <section id="planes" className="py-14">
       <div className="mx-auto w-[calc(100%-2rem)] max-w-[1180px] md:w-[calc(100%-4rem)]">
         <div data-title-group className="mx-auto max-w-4xl text-center">
-          <h2 data-title-reveal className="text-3xl font-medium leading-[1.08] tracking-[-0.055em] md:text-2xl"><strong>brick</strong>, construido por quien construye.</h2>
+          <h2 data-title-reveal className="text-3xl font-medium leading-[1.08] tracking-[-0.055em] md:text-2xl"><strong className="brand-word">brick</strong>, construido por quien construye.</h2>
           <p data-title-reveal className="text-3xl font-medium leading-[1.08] tracking-[-0.055em] text-muted md:text-2xl">Nace dentro de una constructora real, controlando obras de más de $100 M.</p>
         </div>
         <div data-card-group="pricing" className="mt-16 grid gap-5 lg:grid-cols-3">
           {plans.map((plan) => (
-            <Card data-animate-card key={plan.name} className="flex min-h-[27rem] flex-col bg-soft border border-[#dedbd7] shadow-sm">
+            <Card data-animate-card key={plan.name} className="flex min-h-[27rem] flex-col border border-border bg-soft shadow-sm">
               <CardHeader className="flex-row items-baseline justify-between space-y-0 p-7">
                 <CardTitle className="text-2xl">{plan.name}</CardTitle>
                 <p className="text-xl font-medium tracking-tight">{plan.price} <span className="text-xs font-normal text-muted">MXN/mes</span></p>
@@ -125,10 +128,12 @@ function Pricing() {
               <CardContent className="flex-1 p-7">
                 <p className="mb-5 text-lg text-muted">{plan.range}</p>
                 <ul className="space-y-3 text-sm text-muted">
-                  {plan.bullets.map((bullet) => <li key={bullet} className="flex gap-2.5"><span aria-hidden="true" className="mt-2 size-1.5 shrink-0 rounded-full bg-[#dedbd7]" />{bullet}</li>)}
+                  {plan.bullets.map((bullet) => <li key={bullet} className="flex gap-2.5"><span aria-hidden="true" className="mt-2 size-1.5 shrink-0 rounded-full bg-border" />{bullet}</li>)}
                 </ul>
               </CardContent>
-              <CardFooter className="p-7 pt-0"><Button variant="outline" className="w-full" asChild><a href="#contacto">Comenzar</a></Button></CardFooter>
+              <CardFooter className="p-7 pt-0">
+                <SubscriptionButton plan={plan.name.toLowerCase()} />
+              </CardFooter>
             </Card>
           ))}
         </div>
@@ -142,17 +147,17 @@ function ClosingCards() {
   return (
     <section className="mx-auto w-[calc(100%-2rem)] max-w-[1180px] pb-24 md:w-[calc(100%-4rem)] md:pb-36">
       <div data-card-group="closing" className="grid gap-5 lg:grid-cols-5">
-        <Card data-animate-card className="flex min-h-80 flex-col items-center justify-center bg-soft p-7 text-center lg:col-span-2 border border-[#dedbd7] shadow-sm">
+        <Card data-animate-card className="flex min-h-80 flex-col items-center justify-center border border-border bg-soft p-7 text-center shadow-sm lg:col-span-2">
           <h2 className="text-2xl font-medium tracking-tight md:text-3xl">Deja de adivinar cómo va tu obra.</h2>
           <p className="mt-2 text-muted">Comienza con un mes de prueba</p>
           <DemoForm className="mt-8" source="Tarjeta de cierre" />
         </Card>
-        <Card data-animate-card className="grid min-h-80 overflow-hidden bg-soft sm:grid-cols-2 lg:col-span-3 border border-[#dedbd7] shadow-sm">
+        <Card data-animate-card className="grid min-h-80 overflow-hidden border border-border bg-soft shadow-sm sm:grid-cols-2 lg:col-span-3">
           <ImageSlot className="min-h-64 rounded-none border-y-0 border-l-0">
             <img data-card-media src={MaskGroup70} alt="Brick en acción" className="w-full h-full object-cover" />
           </ImageSlot>
           <div className="flex flex-col justify-end p-8 md:p-10">
-            <h2 className="text-2xl font-medium tracking-tight md:text-3xl">Así se ve <strong>brick</strong> en acción.</h2>
+            <h2 className="text-2xl font-medium tracking-tight md:text-3xl">Así se ve <strong className="brand-word">brick</strong> en acción.</h2>
             <p className="mt-2 text-lg text-muted">Dale clic a lo que quieras.</p>
           </div>
         </Card>
@@ -184,7 +189,7 @@ export function App() {
   useLandingAnimations(root)
 
   return (
-    <div ref={root} className="min-h-screen min-w-80 bg-white font-sans text-ink antialiased selection:bg-accent selection:text-ink">
+    <div ref={root} className="min-h-screen min-w-80 bg-white font-sans font-medium text-ink antialiased selection:bg-accent selection:text-ink">
       <Header />
       <main>
         <Hero />
