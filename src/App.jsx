@@ -4,7 +4,6 @@ import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardFooter, CardHeader, CardTitle } from "@/components/ui/card"
 import { Separator } from "@/components/ui/separator"
 import { DemoForm } from "@/components/demo-form"
-import { CheckoutNotice } from "@/components/checkout-notice"
 import { ImageSlot } from "@/components/image-slot"
 import { SubscriptionButton } from "@/components/subscription-button"
 import { createAppUrl } from "@/lib/app-url"
@@ -56,7 +55,7 @@ function Hero() {
   return (
     <section id="inicio" className="overflow-hidden pt-40 md:pt-56">
       <div className="mx-auto w-[calc(100%-2rem)] max-w-[1180px] md:w-[calc(100%-4rem)]">
-        <CheckoutNotice />
+
         <div className="max-w-4xl">
           <h1 data-hero-title className="text-5xl font-medium leading-[0.98] tracking-[-0.068em] sm:text-6xl lg:text-5xl">
             <span className="-mb-[0.09em] block overflow-hidden px-[0.04em] pb-[0.09em] -mx-[0.04em]"><span data-title-line className="block">Excel aguanta mucho.</span></span>
