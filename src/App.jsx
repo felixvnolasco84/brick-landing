@@ -7,6 +7,7 @@ import { DemoForm } from "@/components/demo-form"
 import { CheckoutNotice } from "@/components/checkout-notice"
 import { ImageSlot } from "@/components/image-slot"
 import { SubscriptionButton } from "@/components/subscription-button"
+import { createAppUrl } from "@/lib/app-url"
 import { useLandingAnimations } from "@/hooks/use-landing-animations"
 
 import HeroDashboard from "../public/images/Hero-dashboard.png"
