@@ -4,9 +4,9 @@ import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardFooter, CardHeader, CardTitle } from "@/components/ui/card"
 import { Separator } from "@/components/ui/separator"
 import { DemoForm } from "@/components/demo-form"
-import { CheckoutNotice } from "@/components/checkout-notice"
 import { ImageSlot } from "@/components/image-slot"
 import { SubscriptionButton } from "@/components/subscription-button"
+import { createAppUrl } from "@/lib/app-url"
 import { useLandingAnimations } from "@/hooks/use-landing-animations"
 
 import HeroDashboard from "../public/images/Hero-dashboard.png"
@@ -30,7 +30,7 @@ const features = [
 const plans = [
   { name: "Starter", price: "$4,500", range: "1-3 proyectos", bullets: ["Presupuesto, Programa, Control", "Requisiciones y Bitácora", "Onboarding guiado · 4 horas", "Soporte general"] },
   { name: "Growth", price: "$6,800", range: "4-10 proyectos", bullets: ["Presupuesto, Programa, Control", "Requisiciones y Bitácora", "Onboarding guiado · 8 horas", "Control Empresarial", "Soporte general"] },
-  { name: "Scale", price: "$17,500", range: "11+ proyectos", bullets: ["Presupuesto, Programa, Control", "Requisiciones y Bitácora", "Migración de datos existentes", "Onboarding guiado · ilimitado", "Control Empresarial", "SLA de incidencias críticas <4h"] },
+  { name: "Scale", price: "$17,500", range: "11-20 proyectos", bullets: ["Presupuesto, Programa, Control", "Requisiciones y Bitácora", "Migración de datos existentes", "Onboarding guiado · ilimitado", "Control Empresarial", "SLA de incidencias críticas <4h"] },
 ]
 
 function Logo() {
@@ -43,7 +43,7 @@ function Header() {
       <div className="mx-auto flex h-24 w-[calc(100%-2rem)] max-w-[1180px] items-center justify-between md:h-28 md:w-[calc(100%-4rem)]">
         <Logo />
         <div className="flex items-center gap-2.5">
-          <Button variant="outline" className="hidden sm:inline-flex" asChild><a href="mailto:hola@brickcontrol.mx">Iniciar sesión</a></Button>
+          <Button variant="outline" className="hidden sm:inline-flex" asChild><a href={createAppUrl("/sign-in")}>Iniciar sesión</a></Button>
           <DemoForm buttonText="Agendar demo" source="Encabezado" />
         </div>
       </div>
@@ -55,7 +55,6 @@ function Hero() {
   return (
     <section id="inicio" className="overflow-hidden pt-40 md:pt-56">
       <div className="mx-auto w-[calc(100%-2rem)] max-w-[1180px] md:w-[calc(100%-4rem)]">
-        <CheckoutNotice />
         <div className="max-w-4xl">
           <h1 data-hero-title className="text-5xl font-medium leading-[0.98] tracking-[-0.068em] sm:text-6xl lg:text-5xl">
             <span className="-mb-[0.09em] block overflow-hidden px-[0.04em] pb-[0.09em] -mx-[0.04em]"><span data-title-line className="block">Excel aguanta mucho.</span></span>
@@ -137,7 +136,7 @@ function Pricing() {
             </Card>
           ))}
         </div>
-        <p className="mt-5 text-center text-sm text-muted">Si el primer mes no te funciona, te lo regresamos.</p>
+        <p className="mt-5 text-center text-sm text-muted">30 días de prueba gratuita. Cancela manualmente antes del primer cobro.</p>
       </div>
     </section>
   )
@@ -149,7 +148,7 @@ function ClosingCards() {
       <div data-card-group="closing" className="grid gap-5 lg:grid-cols-5">
         <Card data-animate-card className="flex min-h-80 flex-col items-center justify-center border border-border bg-soft p-7 text-center shadow-sm lg:col-span-2">
           <h2 className="text-2xl font-medium tracking-tight md:text-3xl">Deja de adivinar cómo va tu obra.</h2>
-          <p className="mt-2 text-muted">Comienza con un mes de prueba</p>
+          <p className="mt-2 text-muted">Comienza con 30 días de prueba</p>
           <DemoForm className="mt-8" source="Tarjeta de cierre" />
         </Card>
         <Card data-animate-card className="grid min-h-80 overflow-hidden border border-border bg-soft shadow-sm sm:grid-cols-2 lg:col-span-3">
