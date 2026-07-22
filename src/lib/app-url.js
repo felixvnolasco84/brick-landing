@@ -1,4 +1,4 @@
-const DEFAULT_APP_URL = "https://www.brick.lat/"
+const DEFAULT_APP_URL = "https://app.brick.lat/"
 
 function getConfiguredAppUrl() {
   const url = new URL(import.meta.env.VITE_APP_URL || DEFAULT_APP_URL)
