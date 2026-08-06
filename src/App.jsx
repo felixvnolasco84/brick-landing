@@ -10,13 +10,13 @@ import { createAppUrl } from "@/lib/app-url"
 import { useLandingAnimations } from "@/hooks/use-landing-animations"
 
 import HeroDashboard from "../public/images/Hero-dashboard.png"
-import Group20728 from "../public/images/Group 20728.png"
-import Group20730 from "../public/images/Group 20730.png"
-import Group20731 from "../public/images/Group 20731.png"
-import Group20732 from "../public/images/Group 20732.png"
-import Group20733 from "../public/images/Group 20733.png"
-import MaskGroup72 from "../public/images/Mask Group 72.png"
-import MaskGroup70 from "../public/images/Mask Group 70.png"
+import Group20728 from "../public/images/Group 20728@2x.png"
+import Group20730 from "../public/images/Group 20730@2x.png"
+import Group20731 from "../public/images/Group 20731@2x.png"
+import Group20732 from "../public/images/Group 20732@2x.png"
+import Group20733 from "../public/images/Group 20733@2x.png"
+import MaskGroup72 from "../public/images/Mask Group 72@2x.png"
+import MaskGroup70 from "../public/images/Mask Group 70@2x.png"
 
 
 const features = [
