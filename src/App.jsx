@@ -9,14 +9,14 @@ import { SubscriptionButton } from "@/components/subscription-button"
 import { createAppUrl } from "@/lib/app-url"
 import { useLandingAnimations } from "@/hooks/use-landing-animations"
 
-import HeroDashboard from "../public/images/Hero-dashboard.png"
-import Group20728 from "../public/images/Group 20728.png"
-import Group20730 from "../public/images/Group 20730.png"
-import Group20731 from "../public/images/Group 20731.png"
-import Group20732 from "../public/images/Group 20732.png"
-import Group20733 from "../public/images/Group 20733.png"
-import MaskGroup72 from "../public/images/Mask Group 72.png"
-import MaskGroup70 from "../public/images/Mask Group 70.png"
+import HeroDashboard from "../public/images/Group 20720@2x.png"
+import Group20728 from "../public/images/Group 20728@2x.png"
+import Group20730 from "../public/images/Group 20730@2x.png"
+import Group20731 from "../public/images/Group 20731@2x.png"
+import Group20732 from "../public/images/Group 20732@2x.png"
+import Group20733 from "../public/images/Group 20733@2x.png"
+import MaskGroup72 from "../public/images/Mask Group 72@2x.png"
+import MaskGroup70 from "../public/images/Mask Group 70@2x.png"
 
 
 const features = [
@@ -65,7 +65,7 @@ function Hero() {
           <div data-hero-support className="mt-9"><DemoForm source="Sección principal" /></div>
         </div> 
         <Card data-hero-card className="mt-14 border-0 bg-[#F4F2F0] p-3 shadow-none md:mt-14 md:p-14">
-          <ImageSlot browser className="aspect-[16/10] min-h-72 md:aspect-[16/8] bg-[#F4F2F0]">
+          <ImageSlot browser className="aspect-[16/10] min-h-72 md:aspect-[16/8] bg-white">
             <img src={HeroDashboard} alt="dashboard principal de Brick" className="w-full h-full object-cover pt-12" />
           </ImageSlot>
         </Card>
