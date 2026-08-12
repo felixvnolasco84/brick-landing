@@ -66,7 +66,7 @@ function Hero() {
         </div> 
         <Card data-hero-card className="mt-14 border-0 bg-[#F4F2F0] p-3 shadow-none md:mt-14 md:p-14">
           <ImageSlot browser className="aspect-[16/10] min-h-72 md:aspect-[16/8] bg-white">
-            <img src={HeroDashboard} alt="dashboard principal de Brick" className="w-full h-full object-cover pt-12" />
+            <img src={HeroDashboard} alt="dashboard principal de Brick" className="image-edge-fade w-full h-full object-cover pt-12" />
           </ImageSlot>
         </Card>
       </div>
@@ -86,11 +86,11 @@ function FeatureGrid() {
         <div data-card-group="features" className="mt-14 grid grid-cols-1 gap-5 md:grid-cols-6">
           {features.map((feature, index) => (
             <Card data-animate-card key={index} className={`overflow-hidden border border-[#E4E4E4] shadow-sm  bg-soft ${feature.large ? "md:col-span-3" : "md:col-span-2"}`}>
-              <CardHeader className="pb-6 md:p-8 md:pb-7">
-                <CardTitle className="text-xl sm:text-2xl [&_span]:font-medium [&_span]:text-muted">{feature.title}</CardTitle>
+              <CardHeader className="pb-6 p-4 md:p-8 md:pb-7">
+                <CardTitle className="text-lg sm:text-2xl [&_span]:font-medium [&_span]:text-muted">{feature.title}</CardTitle>
               </CardHeader>
               <CardContent className="p-3 pt-0 md:px-7 md:pb-0">
-                <img data-card-media src={feature.image} alt={feature.image} />
+                <img data-card-media src={feature.image} alt={feature.image} className="image-edge-fade" />
                 {/* <ImageSlot label={feature.image} browser className={feature.large ? "aspect-[5/3]" : "aspect-[4/3]"} /> */}
               </CardContent>
             </Card>
@@ -154,7 +154,7 @@ function ClosingCards() {
         </Card>
         <Card data-animate-card className="grid min-h-80 overflow-hidden border border-border bg-soft shadow-sm sm:grid-cols-2 lg:col-span-3">
           <ImageSlot className="min-h-64 rounded-none border-y-0 border-l-0">
-            <img data-card-media src={MaskGroup70} alt="Brick en acción" className="w-full h-full object-cover" />
+            <img data-card-media src={MaskGroup70} alt="Brick en acción" className="image-edge-fade w-full h-full object-cover" />
           </ImageSlot>
           <div className="flex flex-col justify-end p-8 md:p-10">
             <h2 className="text-2xl font-medium tracking-tight md:text-3xl">Así se ve <strong className="brand-word">brick</strong> en acción.</h2>
