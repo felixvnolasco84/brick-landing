@@ -87,11 +87,15 @@
 
 @utility image-edge-fade {
   -webkit-mask-image:
-    linear-gradient(to right, #000 0%, #000 78%, transparent 100%),
-    linear-gradient(to bottom, #000 0%, #000 78%, transparent 100%);
+    linear-gradient(to right, #000 0%, #000 var(--image-fade-start, 78%), transparent 100%),
+    linear-gradient(to bottom, #000 0%, #000 var(--image-fade-start, 78%), transparent 100%);
   -webkit-mask-composite: source-in;
   mask-image:
-    linear-gradient(to right, #000 0%, #000 78%, transparent 100%),
-    linear-gradient(to bottom, #000 0%, #000 78%, transparent 100%);
+    linear-gradient(to right, #000 0%, #000 var(--image-fade-start, 78%), transparent 100%),
+    linear-gradient(to bottom, #000 0%, #000 var(--image-fade-start, 78%), transparent 100%);
   mask-composite: intersect;
+}
+
+@utility image-edge-fade-strong {
+  --image-fade-start: 67%;
 }
